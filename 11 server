@@ -1,0 +1,18 @@
+import socket
+host = "127.0.0.1"
+port = 5001
+server = socket.socket()
+server.bind((host,port)) #bind the socket to assigned host IP and port
+server.listen() #listen for incoming connections
+conn, addr = server.accept() #Establish connection with client
+print ("Connection from: " + str(addr))
+while True:
+ data = conn.recv(1024).decode() # Receive the message from Client
+ if str(data)== 'bye':
+ print ("Received from Client: " + str(data))
+ print ("Connection Terminated ")
+ conn.close()
+ break
+ print ("Received from Client: " + str(data))
+ data = input("Type message: ")
+ conn.send(data.encode())
