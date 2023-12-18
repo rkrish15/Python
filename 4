@@ -1,0 +1,17 @@
+def lar(lst,n):
+ l=lst[0]
+ for i in range(1,n):
+ if (lst[i]>l):
+ l=lst[i]
+ return l
+ 
+ 
+lst=[]
+n=int(input("Enter total number of elements: "))
+print("Enter the elements one by one: ")
+for i in range(n):
+ num=float(input())
+ lst.append(num)
+print("The given elements are:")
+print(lst)
+print("Largest number is",lar(lst,n))
