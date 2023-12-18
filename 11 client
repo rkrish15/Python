@@ -1,0 +1,13 @@
+import socket #importing the socket library
+host = '127.0.0.1' #host IP address
+port = 5001 #assign random port value above 1024(up to 1024 ports are reserved)
+obj = socket.socket() #next create a socket object
+obj.connect((host,port)) #connecting to the server
+message = input("Type message: ")
+while message != 'bye':
+ obj.send(message.encode()) # Send the encoded message to Server
+ data = obj.recv(1024).decode() # Receive the message from Server, packet size 1024 bytes
+ print ('Received from server: ' + data)
+ message = input("Type message: ")
+obj.send(message.encode())
+obj.close() #close the connection
