@@ -1,0 +1,34 @@
+def matmul(a,b,m,n,p):
+ c=[[0 for j in range (0,p)] for i in range (0,m)]
+ for i in range(m):
+ for j in range(p):
+ c[i][j]=0
+ for k in range(n):
+ c[i][j]=c[i][j]+a[i][k]*b[k][j]
+ return c
+ 
+m=int(input("Enter number of rows of the first matrix: "))
+n=int(input("Enter number of columns of the first matrix: "))
+p=int(input("Enter number of columns of the second matrix: "))
+# Reading matrix A using List
+a=[]
+print("Enter the elements of the first matrix (row-order): ")
+for i in range(m):
+ r=[]
+ for j in range(n):
+ r.append(int(input()))
+ a.append(r)
+ 
+# Initializing two dimensional array and reading matrix B 
+b=[[0 for j in range (0,p)] for i in range (0,n)]
+print("Enter the elements of the second matrix (row-order): ")
+for i in range(n):
+ for j in range(p):
+ b[i][j]=int(input())
+ 
+print("Matrix A is:")
+print(a)
+print("Matrix B is:")
+print(b)
+print ("Resultant matrix is:")
+print(matmul(a,b,m,n,p))
